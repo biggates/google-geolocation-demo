@@ -1,0 +1,147 @@
+html{
+    height: 100%;
+    font-family: Helvectica, 'Lucida Grande', Sans-serif;
+    font-size:16px;
+}
+
+body{
+    width: 80%;
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+}
+
+div, form{
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius:4px;
+}
+
+form{
+    width: 40%;
+    margin-left: 0;
+    text-align: left;
+    overflow-y: scroll;
+    max-height: 80%;
+}
+
+h2{
+    text-align: center;
+    margin: 5px 0;
+    clear: both;
+    line-height: 1em;
+}
+
+p{
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+}
+
+footer{
+    position: fixed;
+    width: 80%;
+    background-color: #fefefe;
+    bottom: 0;
+    padding: 10px;
+    color: #8c8c8c;
+    text-align: center;
+    font-family: monospace;
+    opacity: 80%;
+}
+
+label{
+    text-align: left;
+    float: left;
+    clear: left;
+    margin: 10px auto 0 auto;
+    line-height: 1em;
+}
+
+input[type="text"], input[type="number"]{
+    width:100%;
+    clear: left;
+    margin: 4px auto;
+    padding: 4px 0;
+    border: none;
+    background-color: #fbfbfb;
+    font-family: monospace;
+}
+
+input[type="text"]:hover, input[type="number"]:hover{
+    background-color: #f8f8f8;
+    border-bottom: solid 1px black;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: dashed 1px black;
+    list-style: none;
+}
+
+br {
+    clear: both;
+}
+
+#map_canvas{
+    margin:5px;
+    width:600px;
+    height:400px;
+    position: absolute;
+    right: 10%;
+    top: 0;
+    box-shadow: 2px 2px 1px 1px #9f9f9f;
+}
+
+#post_result{
+    width:40%;
+    margin:5px 5px 5px 0;
+}
+
+#map_canvas div, #basic_settings{
+    margin:0;
+    padding:0;
+    border:none;
+    border-radius:0px;
+}
+
+a.button, input[type="submit"]{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
+    text-decoration: none;
+    padding: 0 0.5em;
+    border-radius: 4px;
+    border: solid 1px black;
+    background: -moz-linear-gradient(center top , #fcfcfc 0%, #f3f3f3 35%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(40%,#f3f3f3), color-stop(100%,#ededed));
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 -2px 3px 0px #FFF inset, 0 -10px 0 0 #ededed inset;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.button, .button:visited, .button:hover{
+    color:black;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+}
+
+#test_map{
+}
+
+.clear_fix{
+    clear: both;
+    border:none;
+    padding: 0;
+    margin: 0;
+}
