@@ -16,6 +16,12 @@
                 <label for="radio_type">radio_type</label><input id="radio_type" type="text" name="radio_type" value="gsm" /> <br />
                 <label for="request_address">request_address</label><input id="request_address" type="checkbox" name="request_address" value="true" /> <br />
             </div>
+            <h2>GPS</h2>
+            <div id="gps_info">
+                <label for="gps_latitude">Latitude</label><input id="gps_latitude" name="gps_latitude" type="text" value="23.131057" /> <br />
+                <label for="gps_longitude">Longitude</label><input id="gps_longitude" name="gps_longitude" type="text" value="113.312648" /> <br />
+                <label for="gps_pdop">PDOP</label><input id="gps_pdop" name="gps_pdop" type="text" value="5.430000" /> <br />
+            </div>
             <h2>cell towers
                 <a href="javascript:;" class="button" id="button_add_tower">+</a></h2>
             <ul id="cell_towers_section">
@@ -29,6 +35,7 @@
                 -->
             </ul>
             <input id="form_submit" type="submit" />
+            <a href="javascript:;" id="draw_gps" class="button">Draw GPS</a>
             <a href="javascript:;" id="test_map" class="button">Map Test</a>
             <a href="javascript:;" id="clear_markers" class="button">Clear Markers</a>
             <div class="clear_fix"></div>
@@ -37,7 +44,7 @@
         <div id="map_canvas"></div>
         <footer>brought you by biggates</footer>
     </body>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=zh-CN"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </html>

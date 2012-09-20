@@ -74,6 +74,14 @@ $(document).ready(function(){
     $('#button_add_tower').click(addTower);
     /* add a default cell tower */
     addTower();
+    $('#draw_gps').click(function(){
+        var lat = $('#gps_latitude').val();
+        var lon = $('#gps_longitude').val();
+        var acc = parseInt($('#gps_pdop').val());
+        var color = 'green';
+        var info = {cell_id: 'GPS : ' + lat + ',' + lon};
+        addMarker(lat, lon, acc, color, info);
+    });
     
     /**
      * Getting the request body from the form
@@ -195,11 +203,11 @@ $(document).ready(function(){
             animation: google.maps.Animation.DROP,
             title: ''
         };
-        if(acc != undefined){
-            markerOption.title += 'accuracy: ' + acc;
-        }
         if(info != undefined){
-            markerOption.title += '\ncell_id: ' + info.cell_id;
+            markerOption.title += 'cell_id: ' + info.cell_id + '\n';
+        }
+        if(acc != undefined){
+            markerOption.title += 'accuracy: ' + acc + '\n';
         }
         var smallMarker = new google.maps.Marker(markerOption);
         markers.push(smallMarker);
@@ -248,43 +256,37 @@ $(document).ready(function(){
         var result = $('#post_result');
         result.html('posting...');
         var data = getData();
-        for(index in data.cell_towers){
-            var thisTower = data.cell_towers[index];
-            var thisData = getData();
-            thisData.cell_towers = [thisTower];
-            
-            (function(thisTower){
-                /*/
-                $.ajax('http://www.google.com/loc/json', {
-                /*/
-                $.ajax('post.php', {
-                //*/
-                    async: true,
-                    cache: false,
-                    dataType: 'json',
-                    type: 'POST',
-                    crossDomain: true,
-                    statusCode: {
-                        200: function(d, status, jqXHR){
-                            result.html(d);
-                            if(d == undefined || d.location == undefined){
-                                return;
-                            }
-                            var lat = d.location.latitude;
-                            var lon = d.location.longitude;
-                            var acc = d.location.accuracy;
-                            initMap();
-                            addMarker(lat, lon, acc, 'red', thisTower);
-                        }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown){
-                        result.html(textStatus);
-                    },
-                    data: JSON.stringify(thisData)
-                });
-            })(thisTower);
-        }
         
+        /*/
+        $.ajax('test.php', {
+        /*/
+        $.ajax('post.php', {
+        //*/
+            async: true,
+            cache: false,
+            dataType: 'json',
+            type: 'POST',
+            crossDomain: true,
+            statusCode: {
+                200: function(d, status, jqXHR){
+                    result.html(JSON.stringify(d));
+                    if(d == undefined){
+                        return;
+                    }
+                    for(idx in d){
+                        var lat = d[idx].latitude;
+                        var lon = d[idx].longitude;
+                        var acc = d[idx].accuracy;
+                        initMap();
+                        addMarker(lat, lon, acc, 'red', d[idx]);                        
+                    }
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                result.html(textStatus);
+            },
+            data: JSON.stringify(data)
+        });
         return false;
     });
     /* initialize the map on page load */

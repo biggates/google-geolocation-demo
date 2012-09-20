@@ -5,7 +5,7 @@ html{
 }
 
 body{
-    width: 80%;
+    width: 90%;
     text-align: left;
     margin: 0 auto;
     padding: 0;
@@ -93,10 +93,10 @@ br {
 
 #map_canvas{
     margin:5px;
-    width:600px;
-    height:400px;
+    width:800px;
+    height:450px;
     position: absolute;
-    right: 10%;
+    right: 3%;
     top: 0;
     box-shadow: 2px 2px 1px 1px #9f9f9f;
 }
